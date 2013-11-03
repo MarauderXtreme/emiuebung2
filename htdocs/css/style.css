@@ -1,6 +1,6 @@
 /** 
  * 	Author: Christoph Kepler, Michael Schneider
- * 	Date: 20.10.2013
+ * 	Date: 02.11.2013
  * 	General Style CSS
  */
 
@@ -22,7 +22,6 @@ h1, h2, h3, p, ul, li {
 	margin: 0;
 }
 h1 {
-	color: #FFFFFF;
 	font-size: 2em;
 }
 h2 {
@@ -41,27 +40,16 @@ a {
  */
 #form-wrapper {
 	position: absolute;
-	width: 960px;
+	width: 520px;
 	height: 300px;
-	margin-left: -480px;
+	margin-left: -260px;
 	margin-top: -150px;
 	left: 50%;
 	top: 50%;
 }
-#header {
-	height: 100px;
-}
-#subheader {
-	height: 20px;
-}
-#nav {
-	width: 200px;
-	float: left;
-}
-#content {
-	width: 760px;
-	float: left;
-	height: 460px;
+#headline {
+	position: absolute;
+	top: -50px;
 }
 .clearfix {
 	clear: both;
@@ -73,7 +61,22 @@ a {
 #form-wrapper {
 	border-radius: 10px;
 	background: #999999;
-	box-shadow: 5px 5px 5px #666666;
+	box-shadow: 5px 5px 5px #333333;
+}
+
+/**
+ * 	Headline
+ */
+#headline {
+	background: #666666;
+	border-radius: 10px;
+	width: 520px;
+	height: 35px;
+	box-shadow: 5px 5px 5px #333333;
+}
+#headline h1 {
+	text-align: center;
+	padding: 4px 0;
 }
 
 /**
@@ -86,13 +89,18 @@ label {
 	width: 150px;
 	display: block;
 	float: left;
+	font-weight: bold;
 }
 input {
 }
+/**
+ * 	@TODO Fix align of label or size of radio buttons
+ */
 .radiolabel {
 	float: none;
 	display: inline;
+	font-weight: normal;
 }
 p {
-	margin: 3px 0;
+	margin: 5px 0;
 }

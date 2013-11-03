@@ -11,8 +11,12 @@
 </head>
 <body>
 	<div id="form-wrapper">
+		<div id="headline">
+			<h1>Feedback</h1>
+		</div>
 		<form name="feedback">
 			<p>
+				<!-- @TODO Disable Multiselect -->
         <label class="contactlabel">Geschlecht</label>
         <label class="radiolabel" for="men">Mann</label>
 				<input type="radio" id="men" name="men" value="men" />
@@ -21,19 +25,19 @@
 			</p>
       <p>
         <label for="name" class="contactlabel">Name*</label>
-        <input id="name" type="Text" required="required" size="45" value="" name="name" />
+        <input id="name" type="Text" size="45" value="" name="name" />
       </p>
       <p>
         <label for="firstname" class="contactlabel">Vorname</label>
-        <input id="firstname" type="Text" required="required" size="45" value="" name="firstname" />
+        <input id="firstname" type="Text" size="45" value="" name="firstname" />
       </p>
       <p>
         <label class="contactlabel" for="email">E-Mail*</label>
-        <input id="email" type="email" required="required" size="45" value="" name="email" />
+        <input id="email" type="email" size="45" value="" name="email" />
       </p>
       <p>
         <label class="contactlabel" for="text">Nachricht*</label>
-        <textarea id="text" required="required" cols="43" name="text" rows="10"></textarea>
+        <textarea id="text" cols="43" name="text" rows="10"></textarea> <!-- required="required" -->
       </p>
       <p>
       <label class="contactlabel">&nbsp;</label>

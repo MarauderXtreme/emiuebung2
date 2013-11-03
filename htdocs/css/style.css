@@ -1,0 +1,98 @@
+/** 
+ * 	Author: Christoph Kepler, Michael Schneider
+ * 	Date: 20.10.2013
+ * 	General Style CSS
+ */
+
+/** 	
+ * 	Some general settings
+ */
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+body {
+	background: #CCCCCC;
+}
+h1, h2, h3, p, ul, li {
+	padding: 0;
+	margin: 0;
+}
+h1 {
+	color: #FFFFFF;
+	font-size: 2em;
+}
+h2 {
+	font-size: 1.8em;
+}
+h3 {
+	font-size: 1.6em;
+	display: inline;
+}
+a {
+	text-decoration: none;
+}
+
+/**
+ * 	Positioning
+ */
+#form-wrapper {
+	position: absolute;
+	width: 960px;
+	height: 300px;
+	margin-left: -480px;
+	margin-top: -150px;
+	left: 50%;
+	top: 50%;
+}
+#header {
+	height: 100px;
+}
+#subheader {
+	height: 20px;
+}
+#nav {
+	width: 200px;
+	float: left;
+}
+#content {
+	width: 760px;
+	float: left;
+	height: 460px;
+}
+.clearfix {
+	clear: both;
+}
+
+/**
+ * 	Wrapper
+ */
+#form-wrapper {
+	border-radius: 10px;
+	background: #999999;
+	box-shadow: 5px 5px 5px #666666;
+}
+
+/**
+ * 	Form
+ */
+form {
+	margin: 10px;
+}
+label {
+	width: 150px;
+	display: block;
+	float: left;
+}
+input {
+}
+.radiolabel {
+	float: none;
+	display: inline;
+}
+p {
+	margin: 3px 0;
+}

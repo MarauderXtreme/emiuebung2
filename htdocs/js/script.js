@@ -4,23 +4,40 @@
 
 function checkempty() {
 	var error = new Array();
-	if(!document.getElementById('men').checked || !document.getElementById('woman').checked) {
-		error[0] = 'Bitte kreuzen Sie Ihre Anrede an.';
+	var counter=0;
+	if(!document.getElementById('men').checked && !document.getElementById('woman').checked) {
+		error[counter] = 'Bitte kreuzen Sie Ihre Anrede an.';
+		counter=counter+1;
 		document.getElementById('genderlabel').style.color = '#FF0000';
 	}
-	if(document.getElementById('name') == '') {
-		error[1] = 'Bitte geben Sie Ihren Namen an.';
-		document.getElementById('namelabel').style.color = '#FF0000';
+	else if(document.getElementById('men').checked || document.getElementById('woman').checked) {
+		document.getElementById('genderlabel').style.color = '#000000';
 	}
-	if(document.getElementById('email') == '') {
-		error[2] = 'Bitte geben Sie Ihre E-Mail-Adresse ein.';
+	if(document.getElementById('name').value == '') {
+		error[counter] = 'Bitte geben Sie Ihren Namen an.';
+		counter=counter+1;
 		document.getElementById('maillabel').style.color = '#FF0000';
 	}
-	if(document.getElementById('text') == '') {
-		error[3] = 'Bitte geben Sie Ihre Nachricht ein.';
+	else {
+		document.getElementById('maillabel').style.color = '#000000';
+	}
+	if(document.getElementById('email').value == '') {
+		error[counter] = 'Bitte geben Sie Ihre E-Mail-Adresse ein.';
+		counter=counter+1;
+		document.getElementById('maillabel').style.color = '#FF0000';
+	}
+	else {
+		document.getElementById('maillabel').style.color = '#000000';
+	}
+	if(document.getElementById('text').value == '') {
+		error[counter] = 'Bitte geben Sie Ihre Nachricht ein.';
+		counter=counter+1;
 		document.getElementById('textlabel').style.color = '#FF0000';
 	}
-	var msg;
+	else {
+		document.getElementById('textlabel').style.color = '#000000';
+	}
+	var msg='';
 	if(error.length != 0) {
 		for (var i=0; i<error.length; i++) {
 			msg = msg + error[i] + "\n";
@@ -32,9 +49,6 @@ function checkempty() {
 		return true;
 	}
 }
-/**
- * @TODO msg still not working. There is work needed
- */
 
 function displayTooltip(id) {
 	document.getElementById(id).style.display = 'block';
@@ -62,10 +76,10 @@ function updateTooltip (e) {
 	}
 }
 	
-// function stylereset() {
-	// document.getElementById("style").removeAttribute("href");
-	// document.getElementById("style").setAttribute("href", "css/style.css");
-// }
+function stylereset() {
+	document.getElementById("style").removeAttribute("href");
+	document.getElementById("style").setAttribute("href", "css/style.css");
+}
 
 /**
  * RegEx:

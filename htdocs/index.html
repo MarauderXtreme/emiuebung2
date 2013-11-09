@@ -17,10 +17,10 @@
 			<p>
 				<!-- @TODO Disable Multiselect -->
         <label id="genderlabel" class="contactlabel" onmouseover="displayTooltip('gendertooltip')" onmouseout="hideTooltip('gendertooltip')">Geschlecht</label>
-        <label class="radiolabel" for="men">Mann</label>
-				<input type="radio" id="men" name="men" value="men" />
-        <label class="radiolabel" for="woman">Frau</label>
-				<input type="radio" id="woman" name="woman" value="woman" />
+        <label class="radiolabel" for="gender">Mann</label>
+				<input type="radio" id="men" name="gender" value="men" />
+        <label class="radiolabel" for="gender">Frau</label>
+				<input type="radio" id="woman" name="gender" value="woman" />
 				<div id="gendertooltip">Pflichtfeld: Bitte kreuzen Sie hier Ihr Geschlecht an.</div>
 			</p>
       <p>
@@ -45,7 +45,7 @@
       <p>
       <label class="contactlabel">&nbsp;</label>
       <input id="contactsubmit" type="Submit" value="Senden" name="">
-      <input type="reset" value="Zur&uml;cksetzen">
+      <input type="reset" value="Zur&uml;cksetzen" onclick="stylereset()">
       </p>
 		</form>
 	</div>

@@ -94,6 +94,9 @@ label {
 }
 input {
 }
+textarea {
+	resize: none;
+}
 div[id*="tooltip"] {
 	display: none;
 	position: absolute;

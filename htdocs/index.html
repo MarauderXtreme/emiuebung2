@@ -6,7 +6,6 @@
   	<meta name="description" content="Inhalt der zweiten EMI &Uuml;bung">
   	<link id="style" rel="stylesheet" type="text/css" href="css/style.css" media="screen">
   	<link rel="shortcut icon" href="css/img/favicon.ico" type="image/x-icon" />
-	<script src="lib/jquery-2.0.3.min.js" type="text/javascript"></script>
 	<script src="js/script.js" type="text/javascript"></script>
 </head>
 <body>
@@ -14,30 +13,34 @@
 		<div id="headline">
 			<h1>Feedback</h1>
 		</div>
-		<form name="feedback" action="mailto:asdf@asdf.de" method="post" enctype="text/plain" onsubmit="return validate()" onclick="">
+		<form name="feedback" action="mailto:asdf@asdf.de" method="post" enctype="text/plain" onsubmit="return checkempty()" onclick="stylereset()">
 			<p>
 				<!-- @TODO Disable Multiselect -->
-        <label class="contactlabel">Geschlecht</label>
+        <label id="genderlabel" class="contactlabel" onmouseover="displayTooltip('gendertooltip')" onmouseout="hideTooltip('gendertooltip')">Geschlecht</label>
         <label class="radiolabel" for="men">Mann</label>
 				<input type="radio" id="men" name="men" value="men" />
         <label class="radiolabel" for="woman">Frau</label>
 				<input type="radio" id="woman" name="woman" value="woman" />
+				<div id="gendertooltip">Pflichtfeld: Bitte kreuzen Sie hier Ihr Geschlecht an.</div>
 			</p>
       <p>
-        <label for="name" class="contactlabel">Name*</label>
+        <label id="namelabel" for="name" class="contactlabel" onmouseover="displayTooltip('nametooltip')" onmouseout="hideTooltip('nametooltip')">Name*</label>
         <input id="name" type="Text" size="45" value="" name="name" />
+        <div id="nametooltip">Pflichtfeld: Bitte geben Sie hier Ihren Namen ein.</div>
       </p>
       <p>
         <label for="firstname" class="contactlabel">Vorname</label>
         <input id="firstname" type="Text" size="45" value="" name="firstname" />
       </p>
       <p>
-        <label class="contactlabel" for="email">E-Mail*</label>
-        <input id="email" type="email" size="45" value="" name="email" />
+        <label id="maillabel" class="contactlabel" for="email" onmouseover="displayTooltip('mailtooltip')" onmouseout="hideTooltip('mailtooltip')">E-Mail*</label>
+        <input id="email" type="email" size="45" value="" name="email" onblur="return emailvalidate()" />
+        <div id="mailtooltip">Pflichtfeld: Bitte geben Sie hier Ihre Mail-Adresse ein.</div>
       </p>
       <p>
-        <label class="contactlabel" for="text">Nachricht*</label>
-        <textarea id="text" cols="43" name="text" rows="10"></textarea> <!-- required="required" -->
+        <label id="textlabel" class="contactlabel" for="text" onmouseover="displayTooltip('texttooltip')" onmouseout="hideTooltip('texttooltip')">Nachricht*</label>
+        <textarea id="text" cols="43" name="text" rows="10"></textarea> <!-- @TODO ? required="required" -->
+        <div id="texttooltip">Pflichtfeld: Bitte schreiben Sie hier Ihre Nachricht.</div>
       </p>
       <p>
       <label class="contactlabel">&nbsp;</label>

@@ -95,8 +95,9 @@ function updateTooltip (e) {
  * @TODO Doesn't fix the style of the labels
  */
 function stylereset() {
-	document.getElementById("style").removeAttribute("href");
-	document.getElementById("style").setAttribute("href", "css/style.css");
+	/*document.getElementById("style").removeAttribute("href");
+	document.getElementById("style").setAttribute("href", "css/style.css");*/
+	document.getElementByClassName("contactlabel").style.color = "#000000";
 }
 
 

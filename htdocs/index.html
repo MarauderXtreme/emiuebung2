@@ -40,14 +40,12 @@
       </p>
       <p>
         <label id="maillabel" class="contactlabel" for="email" onmouseover="displayTooltip('mailtooltip')" onmouseout="hideTooltip('mailtooltip')">E-Mail*</label>
-        <!-- Set type="text" deleted onblur... -->
-        <input id="email" type="text" size="45" value="" name="email" onblur="return emailvalidate()" />
+        <input id="email" type="text" size="45" value="" name="email" onblur="mailcheck(this.value)" />
         <div id="mailtooltip">Pflichtfeld: Bitte geben Sie hier Ihre Mail-Adresse ein.</div>
       </p>
       <p>
         <label id="textlabel" class="contactlabel" for="text" onmouseover="displayTooltip('texttooltip')" onmouseout="hideTooltip('texttooltip')">Nachricht*</label>
         <textarea id="text" cols="43" name="text" rows="10"></textarea> 
-        <!-- @TODO ? required="required" -->
         <div id="texttooltip">Pflichtfeld: Bitte schreiben Sie hier Ihre Nachricht.</div>
       </p>
       <p>

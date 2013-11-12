@@ -60,6 +60,13 @@ function emailvalidate(mailaddress) {
  	 return check.test(mailaddress); 
 }
 
+function mailcheck(mailaddress){
+	if(!emailvalidate(mailaddress)){
+		alert("Bitte eine gültige Mail eingeben!");
+		document.getElementById('maillabel').style.color = '#FF0000';
+	}
+}
+
 /**
  * Set Action
  * @TODO For later it would be great, to add the mail somehow encoded (not in plain-text) (http://stackoverflow.com/questions/246801/how-can-you-encode-a-string-to-base64-in-javascript)
@@ -80,10 +87,11 @@ function hideTooltip(id) {
 }
 /**
  * @TODO commented out typeoff. Should fix at first the movement problem but produces too much errors. Investigation needed.
+ * Works with typeoff => Solved?
  */
 document.onmousemove = updateTooltip;
 function updateTooltip (e) {
-	//if(typeof tooltip !== 'undefined') {
+	if(typeof tooltip !== 'undefined') {
 		if(tooltip != null && tooltip.style.display == "block") {
 			var x = (e.pageX ? e.pageX : window.event.x)
 				+ tooltip.offsetParent.scrollLeft
@@ -96,19 +104,14 @@ function updateTooltip (e) {
 			tooltip.style.left = (x + 20) +  "px";	
 			tooltip.style.top = (y + 20) +  "px";	
 		}
-	//}
+	}
 }
 
 /**
  * Stylereset after the field is correct
  */
 function stylereset() {
-	
-	/** Useless? - Yeah sort of. :-)
-	document.getElementById("style").removeAttribute("href");
-	document.getElementById("style").setAttribute("href", "css/style.css");
-	*/
-	
+		
 	var list = document.getElementsByClassName("contactlabel");
 	for (var i = 0; i < list.length; i++) {
    	 list[i].style.color= "#000000";

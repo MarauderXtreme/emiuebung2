@@ -14,9 +14,11 @@
 		<div id="headline">
 			<h1>Feedback</h1>
 		</div>
-		<form id="feedback" method="post" enctype="text/plain" onsubmit="return checkempty()" onclick="stylereset()">
+		<!--
+			deleted onclick="stylereset()" 
+		-->	
+		<form id="feedback"action="mailto:test@test.de" method="post" enctype="text/plain" onsubmit="return checkempty()">
 			<p>
-				<!-- @TODO Disable Multiselect -->
         <label id="genderlabel" class="contactlabel" onmouseover="displayTooltip('gendertooltip')" onmouseout="hideTooltip('gendertooltip')">Geschlecht</label>
         <label class="radiolabel" for="gender">Mann</label>
 				<input type="radio" id="men" name="gender" value="men" />
@@ -35,12 +37,14 @@
       </p>
       <p>
         <label id="maillabel" class="contactlabel" for="email" onmouseover="displayTooltip('mailtooltip')" onmouseout="hideTooltip('mailtooltip')">E-Mail*</label>
-        <input id="email" type="email" size="45" value="" name="email" onblur="return emailvalidate()" />
+        <!-- Set type="text" deleted onblur... -->
+        <input id="email" type="text" size="45" value="" name="email" onblur="return emailvalidate()" />
         <div id="mailtooltip">Pflichtfeld: Bitte geben Sie hier Ihre Mail-Adresse ein.</div>
       </p>
       <p>
         <label id="textlabel" class="contactlabel" for="text" onmouseover="displayTooltip('texttooltip')" onmouseout="hideTooltip('texttooltip')">Nachricht*</label>
-        <textarea id="text" cols="43" name="text" rows="10"></textarea> <!-- @TODO ? required="required" -->
+        <textarea id="text" cols="43" name="text" rows="10"></textarea> 
+        <!-- @TODO ? required="required" -->
         <div id="texttooltip">Pflichtfeld: Bitte schreiben Sie hier Ihre Nachricht.</div>
       </p>
       <p>

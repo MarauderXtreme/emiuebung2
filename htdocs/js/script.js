@@ -5,8 +5,6 @@
 /**
  * Maybe there is a good way to hide the mail-address (no plaintext)
  */
-var somemail = "";
-document.getElementById('feedback').action = "mailto:" + somemail;
 
 function checkempty() {
 	var error = new Array();
@@ -27,14 +25,17 @@ function checkempty() {
 	else {
 		document.getElementById('namelabel').style.color = '#000000';
 	}
-	if(document.getElementById('email').value == '') {
-		error[counter] = 'Bitte geben Sie Ihre E-Mail-Adresse ein.';
+	if(document.getElementById('email').value == '' || !emailvalidate(document.getElementById("email").value)) {
+		error[counter] = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
 		counter=counter+1;
 		document.getElementById('maillabel').style.color = '#FF0000';
 	}
-	/**
-	 * @TODO I believe the email-validation also belongs here
+	
+	/*
+	 * Changed Text to "Bitte geben Sie eine GÜLTIGE E-Mail Adresse ein."
 	 */
+
+	
 	else {
 		document.getElementById('maillabel').style.color = '#000000';
 	}
@@ -59,13 +60,12 @@ function checkempty() {
 	}
 }
 /**
- * @TODO Fix Mail Check
+ * Should work now
  */
-function emailvalidate() {
-	// var check = new RegExp('[\-_.A-Za-z0-9]*\/@\/[\-.A-Za-z0-9]*.[\-.A-Za-z0-9](1-3)');
- 	// return check.test(mailaddress); 
+function emailvalidate(mailaddress) {
+	 var check = new RegExp('[a-zA-Z.\-_]+@{1}[a-zA-Z.\-_]+.[a-zA-Z]{2,4}');
+ 	 return check.test(mailaddress); 
 }
-
 function displayTooltip(id) {
 	document.getElementById(id).style.display = 'block';
 	tooltip = document.getElementById(id);
@@ -95,11 +95,17 @@ function updateTooltip (e) {
  * @TODO Doesn't fix the style of the labels
  */
 function stylereset() {
-	/*document.getElementById("style").removeAttribute("href");
-	document.getElementById("style").setAttribute("href", "css/style.css");*/
-	document.getElementByClassName("contactlabel").style.color = "#000000";
+	
+	/** Useless ??
+	document.getElementById("style").removeAttribute("href");
+	document.getElementById("style").setAttribute("href", "css/style.css");
+	*/
+	
+	var list = document.getElementsByClassName("contactlabel");
+	for (var i = 0; i < list.length; i++) {
+   	 list[i].style.color= "#000000";
 }
-
+}
 
 /**
  * @TODO Maybe add email encoded to js (http://stackoverflow.com/questions/246801/how-can-you-encode-a-string-to-base64-in-javascript)

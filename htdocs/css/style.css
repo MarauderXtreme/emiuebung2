@@ -42,9 +42,9 @@ a {
 #form-wrapper {
 	position: absolute;
 	width: 520px;
-	height: 300px;
+	height: 350px;
 	margin-left: -260px;
-	margin-top: -150px;
+	margin-top: -175px;
 	left: 50%;
 	top: 50%;
 }
@@ -116,3 +116,6 @@ div[id*="tooltip"] {
 p {
 	margin: 5px 0;
 }
+
+
+

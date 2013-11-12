@@ -7,17 +7,20 @@
   <link id="style" rel="stylesheet" type="text/css" href="css/style.css" media="screen">
   <link rel="shortcut icon" href="css/img/favicon.ico" type="image/x-icon" />
 	<script src="js/script.js" type="text/javascript"></script>
-	<noscript>JavaScript ist nicht aktiviert. Dieses Formular wird nicht übermittelt.</noscript>
+	<noscript>
+		<div id="greybox">
+			<div id="alert">
+				JavaScript ist nicht aktiviert. Bitte aktivieren Sie JavaScript. Dieses Formular wird nicht übermittelt.
+			</div>
+		</div>
+	</noscript>
 </head>
 <body>
 	<div id="form-wrapper">
 		<div id="headline">
 			<h1>Feedback</h1>
 		</div>
-		<!--
-			deleted onclick="stylereset()" 
-		-->	
-		<form id="feedback"action="mailto:test@test.de" method="post" enctype="text/plain" onsubmit="return checkempty()">
+		<form id="feedback" method="post" enctype="text/plain" onsubmit="return checkempty(); get_action(this);">
 			<p>
         <label id="genderlabel" class="contactlabel" onmouseover="displayTooltip('gendertooltip')" onmouseout="hideTooltip('gendertooltip')">Geschlecht</label>
         <label class="radiolabel" for="gender">Mann</label>

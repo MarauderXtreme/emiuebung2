@@ -1,11 +1,10 @@
 /**
- * @author Christoph Kepler
+ * @author Christoph Kepler, Michael Schneider
  */
 
 /**
- * Maybe there is a good way to hide the mail-address (no plaintext)
+ * Primary Validation Function
  */
-
 function checkempty() {
 	var error = new Array();
 	var counter=0;
@@ -30,12 +29,6 @@ function checkempty() {
 		counter=counter+1;
 		document.getElementById('maillabel').style.color = '#FF0000';
 	}
-	
-	/*
-	 * Changed Text to "Bitte geben Sie eine GÜLTIGE E-Mail Adresse ein."
-	 */
-
-	
 	else {
 		document.getElementById('maillabel').style.color = '#000000';
 	}
@@ -60,12 +53,24 @@ function checkempty() {
 	}
 }
 /**
- * Should work now
+ * Emailvalidation
  */
 function emailvalidate(mailaddress) {
 	 var check = new RegExp('[a-zA-Z.\-_]+@{1}[a-zA-Z.\-_]+.[a-zA-Z]{2,4}');
  	 return check.test(mailaddress); 
 }
+
+/**
+ * Set Action
+ * @TODO For later it would be great, to add the mail somehow encoded (not in plain-text) (http://stackoverflow.com/questions/246801/how-can-you-encode-a-string-to-base64-in-javascript)
+ */
+function get_action(form) {
+	form.action = "mailto:test@test.de";
+}
+
+/**
+ * Tooltip Functions
+ */
 function displayTooltip(id) {
 	document.getElementById(id).style.display = 'block';
 	tooltip = document.getElementById(id);
@@ -73,10 +78,12 @@ function displayTooltip(id) {
 function hideTooltip(id) {
 	document.getElementById(id).style.display = 'none';
 }
-
+/**
+ * @TODO commented out typeoff. Should fix at first the movement problem but produces too much errors. Investigation needed.
+ */
 document.onmousemove = updateTooltip;
 function updateTooltip (e) {
-	if(typeof tooltip !== 'undefined') {
+	//if(typeof tooltip !== 'undefined') {
 		if(tooltip != null && tooltip.style.display == "block") {
 			var x = (e.pageX ? e.pageX : window.event.x)
 				+ tooltip.offsetParent.scrollLeft
@@ -89,14 +96,15 @@ function updateTooltip (e) {
 			tooltip.style.left = (x + 20) +  "px";	
 			tooltip.style.top = (y + 20) +  "px";	
 		}
-	}
+	//}
 }
+
 /**
- * @TODO Doesn't fix the style of the labels
+ * Stylereset after the field is correct
  */
 function stylereset() {
 	
-	/** Useless ??
+	/** Useless? - Yeah sort of. :-)
 	document.getElementById("style").removeAttribute("href");
 	document.getElementById("style").setAttribute("href", "css/style.css");
 	*/
@@ -104,10 +112,9 @@ function stylereset() {
 	var list = document.getElementsByClassName("contactlabel");
 	for (var i = 0; i < list.length; i++) {
    	 list[i].style.color= "#000000";
-}
+	}
 }
 
 /**
- * @TODO Maybe add email encoded to js (http://stackoverflow.com/questions/246801/how-can-you-encode-a-string-to-base64-in-javascript)
- * @TODO Add a email delivery/how to encode
+ * @TODO DEFERRED How to style the email
  */

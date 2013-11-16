@@ -20,9 +20,9 @@
 		<div id="headline">
 			<h1>Feedback</h1>
 		</div>
-		<form id="feedback" method="post" enctype="text/plain" onsubmit="return checkempty(); get_action(this);">
+		<form id="feedback" method="post" enctype="text/plain" onsubmit="get_action(this); return checkempty();">
 			<p>
-        <label id="genderlabel" class="contactlabel" onmouseover="displayTooltip('gendertooltip')" onmouseout="hideTooltip('gendertooltip')">Geschlecht</label>
+        <label id="genderlabel" class="contactlabel" onmouseover="displayTooltip('gendertooltip')" onmouseout="hideTooltip('gendertooltip')">Geschlecht*</label>
         <label class="radiolabel" for="gender">Mann</label>
 				<input type="radio" id="men" name="gender" value="men" />
         <label class="radiolabel" for="gender">Frau</label>
@@ -52,6 +52,7 @@
       <label class="contactlabel">&nbsp;</label>
       <input id="contactsubmit" type="Submit" value="Senden" name="">
       <input type="reset" value="Zur&uuml;cksetzen" onclick="stylereset()">
+			<span id="hint">* - Pflichtfeld. Bitte mit Angaben füllen.</span>
       </p>
 		</form>
 	</div>

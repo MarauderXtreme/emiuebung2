@@ -6,58 +6,53 @@
  * Primary Validation Function
  */
 function checkempty() {
-	var error = new Array();
-	var counter=0;
+	var msg = '';
 	if(!document.getElementById('men').checked && !document.getElementById('woman').checked) {
-		error[counter] = 'Bitte kreuzen Sie Ihre Anrede an.';
-		counter=counter+1;
+		msg = msg + 'Bitte kreuzen Sie Ihre Anrede an.\n';
 		document.getElementById('genderlabel').style.color = '#FF0000';
 	}
 	else if(document.getElementById('men').checked || document.getElementById('woman').checked) {
 		document.getElementById('genderlabel').style.color = '#000000';
 	}
 	if(document.getElementById('name').value == '') {
-		error[counter] = 'Bitte geben Sie Ihren Namen an.';
-		counter=counter+1;
+		msg = msg + 'Bitte geben Sie Ihren Namen an.\n';
 		document.getElementById('namelabel').style.color = '#FF0000';
 	}
 	else {
 		document.getElementById('namelabel').style.color = '#000000';
 	}
 	if(document.getElementById('email').value == '' || !emailvalidate(document.getElementById("email").value)) {
-		error[counter] = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
-		counter=counter+1;
+		msg = msg + 'Bitte geben Sie eine gültige E-Mail-Adresse ein.\n';
 		document.getElementById('maillabel').style.color = '#FF0000';
 	}
 	else {
 		document.getElementById('maillabel').style.color = '#000000';
 	}
 	if(document.getElementById('text').value == '') {
-		error[counter] = 'Bitte geben Sie Ihre Nachricht ein.';
-		counter=counter+1;
+		msg = msg + 'Bitte geben Sie Ihre Nachricht ein.\n';
 		document.getElementById('textlabel').style.color = '#FF0000';
 	}
 	else {
 		document.getElementById('textlabel').style.color = '#000000';
 	}
-	var msg='';
-	if(error.length != 0) {
-		for (var i=0; i<error.length; i++) {
-			msg = msg + error[i] + "\n";
-		}
+	if(msg != '') {
 		alert(msg);
 		return false;
 	}
-	else {
-		return true;
-	}
+	// else {
+		// return true;
+	// }
 }
 /**
  * Emailvalidation
  */
 function emailvalidate(mailaddress) {
-	 var check = new RegExp('[a-zA-Z.\-_]+@{1}[a-zA-Z.\-_]+.[a-zA-Z]{2,4}');
- 	 return check.test(mailaddress); 
+	/**
+	 * @TODO There are TLDs like *.museum and *.travel. Maybe we need to extend our regex on the end
+	 * @TODO Added numbers 0-9. Is this okay?
+	 */
+	var check = new RegExp('[0-9a-zA-Z.\-_]+@{1}[0-9a-zA-Z.\-]+.[a-zA-Z]{2,4}');
+	return check.test(mailaddress); 
 }
 
 function mailcheck(mailaddress){
@@ -69,10 +64,11 @@ function mailcheck(mailaddress){
 
 /**
  * Set Action
+ * @TODO The actual mailto needs some approvement :-)
  * @TODO For later it would be great, to add the mail somehow encoded (not in plain-text) (http://stackoverflow.com/questions/246801/how-can-you-encode-a-string-to-base64-in-javascript)
  */
 function get_action(form) {
-	form.action = "mailto:test@test.de";
+	form.action = "mailto:bofh@projectbofh.umbrella-corp.gov?subject=Site-Feedback&cc=a.wesker@projectbofh.umbrella-corp.gov&bcc=admin@projectbofh.umbrella-corp.gov" 
 }
 
 /**
@@ -86,8 +82,7 @@ function hideTooltip(id) {
 	document.getElementById(id).style.display = 'none';
 }
 /**
- * @TODO commented out typeoff. Should fix at first the movement problem but produces too much errors. Investigation needed.
- * Works with typeoff => Solved?
+ * Movement for Tooltip
  */
 document.onmousemove = updateTooltip;
 function updateTooltip (e) {

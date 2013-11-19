@@ -149,6 +149,7 @@ p {
 	padding: 5px;
 }
 #hint {
+	display: block;
 	color: #434343;
 	font-size: 0.75em;
 	margin: 0 0 0 15px;

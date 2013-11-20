@@ -56,6 +56,8 @@ function emailvalidate(mailaddress) {
 }
 
 function mailcheck(mailaddress){
+	var mailaddress = mailaddress.replace(/(^\s+|\s+$)/g,'');
+	document.getElementById('email').value = mailaddress;
 	if(!emailvalidate(mailaddress)){
 		alert("Bitte eine gültige Mail eingeben!");
 		document.getElementById('maillabel').style.color = '#FF0000';
@@ -70,7 +72,7 @@ function mailcheck(mailaddress){
  * @TODO For later it would be great, to add the mail somehow encoded (not in plain-text) (http://stackoverflow.com/questions/246801/how-can-you-encode-a-string-to-base64-in-javascript)
  */
 function get_action(form) {
-	form.action = "mailto:example@test.com?subject=Site-Feedback&cc=" + document.getElementById('email').value + "&body=" + document.getElementById('text').value; 
+	form.action = "mailto:example@test.com?subject=Site-Feedback&cc=" + document.getElementById('email').value; 
 }
 
 /**

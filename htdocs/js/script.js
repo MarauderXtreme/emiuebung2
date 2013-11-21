@@ -47,11 +47,8 @@ function checkempty() {
  * Emailvalidation
  */
 function emailvalidate(mailaddress) {
-	/**
-	 * @TODO There are TLDs like *.museum and *.travel. Maybe we need to extend our regex on the end
-	 * @TODO Added numbers 0-9. Is this okay?
-	 */
-	var check = new RegExp("^[0-9a-zA-Z\.\_\-]+@{1}[0-9a-zA-Z\.\_\-]+[\.]{1}[a-zA-Z]{2,6}$");
+
+	var check = new RegExp("^[0-9a-zA-Z\.\_\-]+@{1}[0-9a-zA-Z\.\-]+[\.]{1}[a-zA-Z]{2,6}$");
 	return check.test(mailaddress); 
 }
 
@@ -68,8 +65,6 @@ function mailcheck(mailaddress){
 
 /**
  * Set Action
- * @TODO The actual mailto needs some approvement :-)
- * @TODO For later it would be great, to add the mail somehow encoded (not in plain-text) (http://stackoverflow.com/questions/246801/how-can-you-encode-a-string-to-base64-in-javascript)
  */
 function get_action(form) {
 	form.action = "mailto:example@test.com?subject=Site-Feedback&cc=" + document.getElementById('email').value; 
@@ -116,7 +111,3 @@ function stylereset() {
    	 list[i].style.color= "#000000";
 	}
 }
-
-/**
- * @TODO DEFERRED How to style the email
- */
